@@ -115,6 +115,7 @@ $(function() {
         var oldFeedContent;
 
         beforeEach(function(done) {
+            // Load a feed and store the content ready for comparison
             loadFeed(0, function() {
                 oldFeedContent = $('.feed').html();
                 done();
@@ -122,6 +123,7 @@ $(function() {
         });
 
         it('changes the feed content', function(done) {
+            // Load a different feed and then compare with the stored content
             loadFeed(1, function() {
                 expect($('.feed').html()).not.toEqual(oldFeedContent);
                 done();
